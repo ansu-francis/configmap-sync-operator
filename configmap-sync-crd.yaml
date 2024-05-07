@@ -1,0 +1,8 @@
+apiVersion: example.example.com/v1
+kind: ConfigMapSync
+metadata:
+  name: configmapsync-sample
+spec:
+  sourceNamespace: "argo"
+  destinationNamespace: "rabbitmq"
+  configMapName: "workflow-controller-configmap"

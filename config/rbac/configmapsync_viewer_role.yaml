@@ -1,0 +1,27 @@
+# permissions for end users to view configmapsyncs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: configmapsync-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: configmap-sync-operator
+    app.kubernetes.io/part-of: configmap-sync-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: configmapsync-viewer-role
+rules:
+- apiGroups:
+  - example.example.com
+  resources:
+  - configmapsyncs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - example.example.com
+  resources:
+  - configmapsyncs/status
+  verbs:
+  - get
